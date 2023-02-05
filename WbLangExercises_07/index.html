@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<input type="text" id="txt-price" placeholder="Enter the price of the item"> <!-- creating a input box that gets a price input -->
+<input type="text" id="txt-quantity" placeholder="Enter the quanity of the item"> <!-- input box for quantity, displays placeholder when no text is entered -->
+<button id="btn-submit">Calculate</button> <!-- button that allows user to click -->
+<div id="output"></div>
+
+<!-- line 13: computer is getting the price that the user inputted -->
+<!-- line 14: computer is getting the quantity that the user inputted -->
+<!-- line 15: once button is hit, it will go to eventlistener-->
+<!-- line 16: displaying output -->
+<!-- line 22: event listener for button-->
+<!-- line 23: creating variables for price and quantity and equaling them to uer input value-->
+<!-- line 27: if number is NotANumber, then print out invalid input-->
+<!-- line 34: total is the price times the quantity-->
+<!-- line 35: this is to round the price down to 2 digits-->
+<!-- line 36: this is output statement-->
+
+<script> 
+  var priceInput = document.getElementById('txt-price'); 
+  var quantityInput = document.getElementById('txt-quantity'); 
+  var submitBtn = document.getElementById('btn-submit'); 
+  var output = document.getElementById('output'); 
+
+  submitBtn.addEventListener('click', function () { 
+    var price = priceInput.value;  
+    var quanity = quantityInput.value;
+    price = +price;
+    quanity = +quanity;
+    if (Number.isNaN(price) || Number.isNaN(quanity)) { 
+      output.innerHTML = 'Invalid input';
+      return;
+    }
+    var totalPrice = price * quanity; 
+    totalPrice = Math.round(totalPrice * 100) / 100; 
+    output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice; 
+  });
+</script>
+</html>
